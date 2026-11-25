@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Les membres et la charte de Brumes.">
+
+        <title>Brumes — Le club</title>
+
+        <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/club.css">
+        <script src="../javascript/club.js" defer></script>
+    </head>
+
+    <body class="page-guilde">
+        <a class="skip" href="#contenu">Aller au contenu</a>
+
+        <!-- Je reprends le même menu sur chaque page ; aria-current indique le lien actif. -->
+        <header class="site-header">
+            <a class="brand" href="../index.html" aria-label="Brumes, accueil">brumes<span>.</span></a>
+
+            <nav class="desktop-nav" aria-label="Navigation principale">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <span class="nav-number">01</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/guilde.html" aria-current="page">
+                            <span class="nav-number">02</span>
+                            <span>Le club</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/calendrier.html">
+                            <span class="nav-number">03</span>
+                            <span>Calendrier</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/tarifs.html">
+                            <span class="nav-number">04</span>
+                            <span>Tarifs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/contact.html">
+                            <span class="nav-number">05</span>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a class="header-cta" href="../pages/contact.html#inscription">
+                Nous rejoindre
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- Sur mobile, details et summary ouvrent le menu sans JavaScript. -->
+            <details class="mobile-menu">
+                <summary><span>Menu</span><span class="burger" aria-hidden="true"><i></i><i></i></span></summary>
+
+                <nav aria-label="Navigation mobile">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <span class="nav-number">01</span>
+                                <span>Accueil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/guilde.html" aria-current="page">
+                                <span class="nav-number">02</span>
+                                <span>Le club</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/calendrier.html">
+                                <span class="nav-number">03</span>
+                                <span>Calendrier</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/tarifs.html">
+                                <span class="nav-number">04</span>
+                                <span>Tarifs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/contact.html">
+                                <span class="nav-number">05</span>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </details>
+        </header>
+
+        <main id="contenu" class="shell">
+            <header class="page-heading">
+                <p class="kicker">02 / La Table des Brumes</p>
+                <h1>Le club.</h1>
+                <p class="lead">Des passionnés de jeu de rôle, réunis autour de la même table.</p>
+            </header>
+
+            <!-- Comme dans le TP ImageMap, chaque membre a son indice. La ligne change de fond en CSS ; seul l’avatar affiche le descriptif. -->
+            <section class="member-section" aria-labelledby="membres">
+                <h2 id="membres" class="section-label">Les membres</h2>
+                <p class="member-hint">Survolez ou sélectionnez l’avatar pour découvrir le rôle du membre.</p>
+                <div class="member-list">
+                    <article class="member" id="hamza">
+                        <span class="member-index">01</span>
+                        <button type="button" class="member-photo-button" aria-label="Découvrir le rôle de Hamza"
+                            onmouseenter="afficherMembre(0)" onmouseleave="masquerMembre(0)"
+                            onfocus="afficherMembre(0)" onblur="masquerMembre(0)" onclick="afficherMembre(0)">
+                            <img class="member-photo" src="../images/avatar-anonyme.svg"
+                                alt="" width="100" height="100">
+                        </button>
+                        <h3>Hamza</h3>
+                        <p class="member-role">Responsable du club</p>
+                        <p class="member-description" id="description-0" aria-live="polite">Découvrir le rôle de ce membre.</p>
+                    </article>
+
+                    <article class="member" id="damien">
+                        <span class="member-index">02</span>
+                        <button type="button" class="member-photo-button" aria-label="Découvrir le rôle de Damien"
+                            onmouseenter="afficherMembre(1)" onmouseleave="masquerMembre(1)"
+                            onfocus="afficherMembre(1)" onblur="masquerMembre(1)" onclick="afficherMembre(1)">
+                            <img class="member-photo" src="../images/avatar-anonyme.svg"
+                                alt="" width="100" height="100">
+                        </button>
+                        <h3>Damien</h3>
+                        <p class="member-role">Maître du jeu</p>
+                        <p class="member-description" id="description-1" aria-live="polite">Découvrir le rôle de ce membre.</p>
+                    </article>
+
+                    <article class="member" id="clovis">
+                        <span class="member-index">03</span>
+                        <button type="button" class="member-photo-button" aria-label="Découvrir le rôle de Clovis"
+                            onmouseenter="afficherMembre(2)" onmouseleave="masquerMembre(2)"
+                            onfocus="afficherMembre(2)" onblur="masquerMembre(2)" onclick="afficherMembre(2)">
+                            <img class="member-photo" src="../images/avatar-anonyme.svg"
+                                alt="" width="100" height="100">
+                        </button>
+                        <h3>Clovis</h3>
+                        <p class="member-role">Responsable de l’accueil</p>
+                        <p class="member-description" id="description-2" aria-live="polite">Découvrir le rôle de ce membre.</p>
+                    </article>
+
+                    <article class="member" id="jacky">
+                        <span class="member-index">04</span>
+                        <button type="button" class="member-photo-button" aria-label="Découvrir le rôle de Jacky"
+                            onmouseenter="afficherMembre(3)" onmouseleave="masquerMembre(3)"
+                            onfocus="afficherMembre(3)" onblur="masquerMembre(3)" onclick="afficherMembre(3)">
+                            <img class="member-photo" src="../images/avatar-anonyme.svg"
+                                alt="" width="100" height="100">
+                        </button>
+                        <h3>Jacky</h3>
+                        <p class="member-role">Gestion de la boutique</p>
+                        <p class="member-description" id="description-3" aria-live="polite">Découvrir le rôle de ce membre.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Les règles de vie à la table. -->
+            <section class="charter">
+                <div>
+                    <p class="kicker">Notre charte</p>
+                    <h2>Jouer ensemble.</h2>
+                </div>
+                <ul>
+                    <li>
+                        Respecter les limites de chacun.
+                    </li>
+                    <li>
+                        Partager la parole.
+                    </li>
+                    <li>
+                        Prévenir en cas d’absence.
+                    </li>
+                    <li>
+                        Accueillir tous les niveaux.
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- Pied de page : accès à la confidentialité et retour au début de la page. -->
+        <footer class="site-footer shell">
+            <a href="../index.html" class="footer-brand">brumes<span>.</span></a>
+            <span>Club de jeu de rôle · Nîmes<br>Projet étudiant fictif · 2026</span>
+            <a href="../pages/confidentialite.html">Confidentialité</a>
+            <a href="#contenu">Retour en haut ↑</a>
+        </footer>
+    </body>
+</html>

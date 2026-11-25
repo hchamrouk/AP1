@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Formulaire de contact, de réservation et de commande du club.">
+
+        <title>Brumes — Contact</title>
+
+        <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/contact.css">
+
+        <script src="../javascript/contact.js" defer></script>
+    </head>
+
+    <body class="page-contact">
+        <a class="skip" href="#contenu">Aller au contenu</a>
+
+        <!-- Je reprends le même menu sur chaque page ; aria-current indique le lien actif. -->
+        <header class="site-header">
+            <a class="brand" href="../index.html" aria-label="Brumes, accueil">brumes<span>.</span></a>
+
+            <nav class="desktop-nav" aria-label="Navigation principale">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <span class="nav-number">01</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/guilde.html">
+                            <span class="nav-number">02</span>
+                            <span>Le club</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/calendrier.html">
+                            <span class="nav-number">03</span>
+                            <span>Calendrier</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/tarifs.html">
+                            <span class="nav-number">04</span>
+                            <span>Tarifs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/contact.html" aria-current="page">
+                            <span class="nav-number">05</span>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a class="header-cta" href="../pages/contact.html#inscription">
+                Nous rejoindre
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- Sur mobile, details et summary ouvrent le menu sans JavaScript. -->
+            <details class="mobile-menu">
+                <summary><span>Menu</span><span class="burger" aria-hidden="true"><i></i><i></i></span></summary>
+
+                <nav aria-label="Navigation mobile">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <span class="nav-number">01</span>
+                                <span>Accueil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/guilde.html">
+                                <span class="nav-number">02</span>
+                                <span>Le club</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/calendrier.html">
+                                <span class="nav-number">03</span>
+                                <span>Calendrier</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/tarifs.html">
+                                <span class="nav-number">04</span>
+                                <span>Tarifs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/contact.html" aria-current="page">
+                                <span class="nav-number">05</span>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </details>
+        </header>
+
+        <main id="contenu" class="shell">
+            <header class="page-heading">
+                <p class="kicker">05 / La Table des Brumes</p>
+                <h1>Contact.</h1>
+                <p class="lead">Renseignements, réservation d’une séance ou commande.</p>
+            </header>
+
+            <div class="contact-layout">
+                <!-- Les coordonnées restent visibles pendant le défilement sur ordinateur grâce au sticky en CSS. -->
+                <aside class="contact-info">
+                    <p class="kicker">La Table des Brumes</p>
+                    <h2>On se retrouve<br>à la table.</h2>
+                    <dl>
+                        <div class="contact-detail">
+                            <dt>Localisation</dt>
+                            <dd>Nîmes, Gard</dd>
+                        </div>
+
+                        <div class="contact-detail">
+                            <dt>Responsable</dt>
+                            <dd>Hamza</dd>
+                        </div>
+
+                        <div class="contact-detail">
+                            <dt>Courriel</dt>
+                            <dd>contact@brumes.example</dd>
+                        </div>
+
+                        <div class="contact-detail">
+                            <dt>Téléphone</dt>
+                            <dd>01 99 00 00 00</dd>
+                        </div>
+
+                        <div class="contact-detail">
+                            <dt>Adresse du siège</dt>
+                            <dd>12 rue de la République<br>30000 Nîmes <small>(démo)</small></dd>
+                        </div>
+                    </dl>
+                    <a class="text-link" href="../index.html#lieu">
+                        Voir la localisation
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </aside>
+
+                <!-- Un seul formulaire pour les renseignements, les réservations et les commandes. -->
+                <div class="contact-form-slot">
+                    <section class="contact-form" id="inscription" aria-labelledby="contact-title">
+                        <div class="builder-head">
+                            <h2 id="contact-title">Votre demande</h2>
+                            <p class="kicker">* Champs obligatoires</p>
+                        </div>
+
+                        <!-- Les contrôles HTML vérifient les champs obligatoires avant la fonction de validation. Aucun envoi réel. -->
+                        <form
+                            id="form-inscription"
+                            method="post"
+                            enctype="multipart/form-data"
+                            action="#inscription"
+                            aria-label="Formulaire de contact">
+                            <fieldset>
+                                <legend>
+                                    <span>01</span> Objet
+                                </legend>
+                                <div class="fields">
+                                    <div class="full">
+                                        <label for="objet">Type de demande *</label>
+                                        <select name="objet" id="objet" required>
+                                            <option value="">Sélectionner</option>
+                                            <option value="renseignements">Renseignements</option>
+                                            <option value="reservation">Réservation d’une séance</option>
+                                            <option value="commande">Commande (adhésion / boutique)</option>
+                                        </select>
+                                    </div>
+                                    <!-- Les champs de niveau et de séance sont réservés aux demandes de réservation. -->
+                                    <div id="champ-niveau" hidden>
+                                        <label for="niveau">Niveau *</label>
+                                        <select id="niveau" name="niveau" disabled>
+                                            <option value="">Sélectionner</option>
+                                            <option>Découverte</option>
+                                            <option>Intermédiaire</option>
+                                            <option>Confirmé</option>
+                                        </select>
+                                    </div>
+                                    <div id="champ-partie" hidden>
+                                        <label for="partie">Séance souhaitée *</label>
+                                        <select id="partie" name="partie" disabled>
+                                            <option value="">Sélectionner</option>
+                                            <option value="initiation">Le premier lancer — 5 décembre</option>
+                                            <option value="atelier">Atelier de création de personnages — 9 décembre</option>
+                                            <option value="campagne">La citadelle oubliée — 12 décembre</option>
+                                            <option value="one-shot">Le mystère de la taverne — 17 décembre</option>
+                                            <option value="aventure">Sous les bois anciens — 19 décembre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Le récapitulatif reste masqué et désactivé tant que le motif n’est pas une commande. -->
+                            <fieldset class="order-field" id="details-commande" hidden disabled>
+                                <legend>
+                                    Récapitulatif de commande
+                                </legend>
+                                <div class="fields">
+                                    <div class="full">
+                                        <label for="commande">Adhésions et articles souhaités *</label>
+                                        <textarea id="commande" name="commande" rows="5" placeholder="Indiquez les adhésions et les articles souhaités (quantité, taille)."></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>
+                                    <span>02</span> Identité
+                                </legend>
+                                <div class="fields">
+                                    <div>
+                                        <label for="prenom">Prénom *</label>
+                                        <input
+                                            id="prenom"
+                                            name="prenom"
+                                            autocomplete="given-name"
+                                            required
+                                            maxlength="80">
+                                    </div>
+                                    <div>
+                                        <label for="nom">Nom *</label>
+                                        <input
+                                            id="nom"
+                                            name="nom"
+                                            autocomplete="family-name"
+                                            required
+                                            maxlength="80">
+                                    </div>
+                                    <div class="full">
+                                        <label for="naissance">Date de naissance *</label>
+                                        <input
+                                            type="date"
+                                            id="naissance"
+                                            name="naissance"
+                                            autocomplete="bday"
+                                            required>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>
+                                    <span>03</span> Coordonnées
+                                </legend>
+                                <div class="fields">
+                                    <div>
+                                        <label for="email">Courriel *</label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            autocomplete="email"
+                                            required
+                                            maxlength="150">
+                                    </div>
+                                    <div>
+                                        <label for="telephone">Téléphone *</label>
+                                        <input
+                                            type="tel"
+                                            id="telephone"
+                                            name="telephone"
+                                            autocomplete="tel"
+                                            required
+                                            maxlength="10"
+                                            minlength="10"
+                                            placeholder="0612345678">
+                                    </div>
+                                    <div class="full">
+                                        <label for="adresse">Adresse postale *</label>
+                                        <input
+                                            id="adresse"
+                                            name="adresse"
+                                            autocomplete="address-line1"
+                                            required
+                                            maxlength="150">
+                                    </div>
+                                    <div>
+                                        <label for="cp">Code postal *</label>
+                                        <input
+                                            id="cp"
+                                            name="cp"
+                                            autocomplete="postal-code"
+                                            required
+                                            maxlength="5"
+                                            minlength="5">
+                                    </div>
+                                    <div>
+                                        <label for="ville">Ville *</label>
+                                        <input
+                                            id="ville"
+                                            name="ville"
+                                            autocomplete="address-level2"
+                                            required
+                                            maxlength="100">
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="statut-mineur" hidden disabled>
+                                <legend>Participant mineur</legend>
+                                <div class="fields">
+                                    <div class="full">
+                                        <label for="mineur">La réservation ou l’adhésion concerne-t-elle un mineur ? *</label>
+                                        <select id="mineur" name="mineur">
+                                            <option value="">Sélectionner</option>
+                                            <option value="non">Non</option>
+                                            <option value="oui">Oui</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- La déclaration de minorité déclenche la demande de document. -->
+                            <fieldset class="activity-field" id="autorisation-parentale" hidden disabled>
+                                <legend>
+                                    <span>04</span> Autorisation parentale
+                                </legend>
+                                <div class="fields">
+                                    <div class="full">
+                                        <label for="autorisation">Document (obligatoire pour les mineurs concernés)</label>
+                                        <input
+                                            type="file"
+                                            id="autorisation"
+                                            name="autorisation"
+                                            accept=".pdf,.jpg,.jpeg,.png"
+                                            aria-describedby="format">
+                                        <small id="format">
+                                            PDF, JPG ou PNG. Pour une adhésion familiale, réunir les autorisations dans un seul document.
+                                        </small>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>
+                                    Message
+                                </legend>
+                                <div class="fields">
+                                    <div class="full">
+                                        <label for="message">Ton message (facultatif)</label>
+                                        <textarea id="message" name="message" rows="4" maxlength="1000"></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <label class="consent">
+                                <input type="checkbox" id="accord" name="accord" required>
+                                <span>J’ai lu la <a href="confidentialite.html">clause de confidentialité</a>.</span>
+                            </label>
+                            <div id="erreurs-formulaire" aria-live="polite"></div>
+                            <div class="form-actions">
+                                <button class="button dark" id="envoyer" type="submit" disabled>Valider la demande <span aria-hidden="true">↗</span></button>
+                                <button type="reset" class="plain-button">Effacer ↺</button>
+                            </div>
+                            <p class="muted-note">Mode démonstration : aucun envoi. Ne pas saisir de données réelles.</p>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- Pied de page : accès à la confidentialité et retour au début de la page. -->
+        <footer class="site-footer shell">
+            <a href="../index.html" class="footer-brand">brumes<span>.</span></a>
+            <span>Club de jeu de rôle · Nîmes<br>Projet étudiant fictif · 2026</span>
+            <a href="../pages/confidentialite.html">Confidentialité</a>
+            <a href="#contenu">Retour en haut ↑</a>
+        </footer>
+    </body>
+</html>

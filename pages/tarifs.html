@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Cotisations annuelles et simulateur familial.">
+
+        <title>Brumes — Tarifs</title>
+
+        <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/tarifs.css">
+
+        <!-- commun.js doit être chargé avant le script de la page : il contient les tarifs et fonctions partagés. -->
+        <script src="../javascript/commun.js" defer></script>
+        <script src="../javascript/calcul.js" defer></script>
+    </head>
+
+    <body class="page-tarifs">
+        <a class="skip" href="#contenu">Aller au contenu</a>
+
+        <!-- Je reprends le même menu sur chaque page ; aria-current indique le lien actif. -->
+        <header class="site-header">
+            <a class="brand" href="../index.html" aria-label="Brumes, accueil">brumes<span>.</span></a>
+
+            <nav class="desktop-nav" aria-label="Navigation principale">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <span class="nav-number">01</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/guilde.html">
+                            <span class="nav-number">02</span>
+                            <span>Le club</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/calendrier.html">
+                            <span class="nav-number">03</span>
+                            <span>Calendrier</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/tarifs.html" aria-current="page">
+                            <span class="nav-number">04</span>
+                            <span>Tarifs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/contact.html">
+                            <span class="nav-number">05</span>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a class="header-cta" href="../pages/contact.html#inscription">
+                Nous rejoindre
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- Sur mobile, details et summary ouvrent le menu sans JavaScript. -->
+            <details class="mobile-menu">
+                <summary><span>Menu</span><span class="burger" aria-hidden="true"><i></i><i></i></span></summary>
+
+                <nav aria-label="Navigation mobile">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <span class="nav-number">01</span>
+                                <span>Accueil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/guilde.html">
+                                <span class="nav-number">02</span>
+                                <span>Le club</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/calendrier.html">
+                                <span class="nav-number">03</span>
+                                <span>Calendrier</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/tarifs.html" aria-current="page">
+                                <span class="nav-number">04</span>
+                                <span>Tarifs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/contact.html">
+                                <span class="nav-number">05</span>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </details>
+        </header>
+
+        <main id="contenu" class="shell">
+            <header class="page-heading">
+                <p class="kicker">04 / La Table des Brumes</p>
+                <h1>Tarifs.</h1>
+                <p class="lead">Une cotisation annuelle, des réductions pour les mineurs.</p>
+                <a class="text-link shop-jump" href="#boutique">Voir la boutique <span aria-hidden="true">↓</span></a>
+            </header>
+
+            <!-- La simulation reste sur cette page : les quantités servent uniquement aux calculs. -->
+            <form
+                id="simulateur"
+                class="order-form"
+                aria-label="Adhésion et boutique"
+                action="#recapitulatif">
+                <!-- Cotisation familiale : les identifiants des champs correspondent au tableau ADHESIONS de commun.js. -->
+                <div class="price-layout">
+                    <section class="price-builder" aria-labelledby="simulation">
+                        <div class="builder-head">
+                            <h2 id="simulation">Composer votre adhésion</h2>
+                            <p class="kicker">Par personne / an</p>
+                        </div>
+
+                        <div class="price-head" aria-hidden="true">
+                            <span>Catégorie</span>
+                            <span>Tarif</span>
+                            <span>Nombre</span>
+                            <span>Sous-total</span>
+                        </div>
+
+                        <div class="price-row">
+                            <label for="adultes">Adultes · 18 ans et +<small>Tarif normal</small></label>
+                            <p class="unit-price">50 €</p>
+                            <div class="quantity">
+                                <input
+                                    id="adultes"
+                                    name="adultes"
+                                    type="number"
+                                    min="0"
+                                    max="999"
+                                    step="1"
+                                    required
+                                    value="0"
+                                    data-prix="50"
+                                    aria-label="Nombre : Adultes · 18 ans et +">
+                            </div>
+                            <output id="cout-adultes" for="adultes" class="subtotal">0 €</output>
+                        </div>
+
+                        <div class="price-row">
+                            <label for="de16a17">16 à moins de 18 ans<small>−10 %</small></label>
+                            <p class="unit-price">45 €</p>
+                            <div class="quantity">
+                                <input
+                                    id="de16a17"
+                                    name="de16a17"
+                                    type="number"
+                                    min="0"
+                                    max="999"
+                                    step="1"
+                                    required
+                                    value="0"
+                                    data-prix="45"
+                                    aria-label="Nombre : 16 à moins de 18 ans">
+                            </div>
+                            <output id="cout-de16a17" for="de16a17" class="subtotal">0 €</output>
+                        </div>
+
+                        <div class="price-row">
+                            <label for="de12a15">12 à moins de 16 ans<small>−20 %</small></label>
+                            <p class="unit-price">40 €</p>
+                            <div class="quantity">
+                                <input
+                                    id="de12a15"
+                                    name="de12a15"
+                                    type="number"
+                                    min="0"
+                                    max="999"
+                                    step="1"
+                                    required
+                                    value="0"
+                                    data-prix="40"
+                                    aria-label="Nombre : 12 à moins de 16 ans">
+                            </div>
+                            <output id="cout-de12a15" for="de12a15" class="subtotal">0 €</output>
+                        </div>
+
+                        <div class="price-row">
+                            <label for="moins12">Moins de 12 ans<small>−30 %</small></label>
+                            <p class="unit-price">35 €</p>
+                            <div class="quantity">
+                                <input
+                                    id="moins12"
+                                    name="moins12"
+                                    type="number"
+                                    min="0"
+                                    max="999"
+                                    step="1"
+                                    required
+                                    value="0"
+                                    data-prix="35"
+                                    aria-label="Nombre : Moins de 12 ans">
+                            </div>
+                            <output id="cout-moins12" for="moins12" class="subtotal">0 €</output>
+                        </div>
+
+                        <div class="price-reset">
+                            <button type="button" id="reset-cotisation" class="plain-button" disabled>Réinitialiser la cotisation ↺</button>
+                        </div>
+                    </section>
+
+                    <aside class="price-receipt" aria-labelledby="receipt-title">
+                        <p class="kicker">Récapitulatif</p>
+                        <h2 id="receipt-title">Votre cotisation.</h2>
+                        <div class="receipt-line">
+                            <span>Adhérents</span>
+                            <output id="nombre-total" for="adultes moins12 de12a15 de16a17">0</output>
+                        </div>
+                        <div class="receipt-total">
+                            <span>Total annuel</span>
+                            <div>
+                                <output id="cout-total" for="adultes moins12 de12a15 de16a17" aria-live="polite">0</output>
+                                <span>€</span>
+                            </div>
+                        </div>
+                        <a class="text-link" href="#recapitulatif">
+                            Voir le total de la commande
+                            <span aria-hidden="true">↓</span>
+                        </a>
+                        <small class="muted-note">Montants mis à jour automatiquement.</small>
+                    </aside>
+                </div>
+
+                <!-- Collection Brumes : les quantités et tailles restent dans le même formulaire que la cotisation. -->
+                <section class="shop" id="boutique" aria-labelledby="shop-title">
+                    <div class="shop-heading">
+                        <div>
+                            <p class="kicker">Collection du club</p>
+                            <h2 id="shop-title">Boutique.</h2>
+                        </div>
+                        <div>
+                            <p>4 mockups intégrés</p>
+                            <a class="text-link" href="contact.html#inscription">
+                                Contacter la boutique
+                                <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="shop-grid">
+                        <article class="product" data-produit="sweat" data-prix="38">
+                            <figure class="product-image">
+                                <span class="product-index">01</span>
+                                <img src="../images/sweat-mockup.jpg"
+                                    alt="Sweat brun espresso avec logo doré" width="880" height="1100" loading="lazy">
+                            </figure>
+                            <div class="product-info">
+                                <div class="product-title">
+                                    <h3>Sweat Brumes</h3>
+                                    <p>38 €</p>
+                                </div>
+                                <p class="product-meta">Coton · Brun espresso</p>
+                                <label class="shop-size" for="taille-sweat">
+                                    <span>Taille</span>
+                                    <select id="taille-sweat" name="taille-sweat">
+                                        <option>S</option>
+                                        <option selected>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                    </select>
+                                </label>
+                                <label class="product-quantity" for="qte-sweat">
+                                    <span>Quantité</span>
+                                    <input id="qte-sweat" name="qte-sweat" type="number"
+                                        min="0" max="999" step="1" required value="0">
+                                </label>
+                            </div>
+                        </article>
+
+                        <article class="product" data-produit="tapis" data-prix="25">
+                            <figure class="product-image">
+                                <span class="product-index">02</span>
+                                <img src="../images/tapis-mockup.jpg"
+                                    alt="Tapis de bataille brun avec carte et quadrillage dorés" width="880" height="1100" loading="lazy">
+                            </figure>
+                            <div class="product-info">
+                                <div class="product-title">
+                                    <h3>Tapis de bataille</h3>
+                                    <p>25 €</p>
+                                </div>
+                                <p class="product-meta">Carte quadrillée · Univers fantasy</p>
+                                <p class="shop-size fixed-size">Taille unique</p>
+                                <label class="product-quantity" for="qte-tapis">
+                                    <span>Quantité</span>
+                                    <input id="qte-tapis" name="qte-tapis" type="number"
+                                        min="0" max="999" step="1" required value="0">
+                                </label>
+                            </div>
+                        </article>
+
+                        <article class="product" data-produit="piste" data-prix="24">
+                            <figure class="product-image">
+                                <span class="product-index">03</span>
+                                <img src="../images/piste-mockup.jpg"
+                                    alt="Piste à dés brune avec sept dés polyédriques" width="880" height="1100" loading="lazy">
+                            </figure>
+                            <div class="product-info">
+                                <div class="product-title">
+                                    <h3>Piste à dés</h3>
+                                    <p>24 €</p>
+                                </div>
+                                <p class="product-meta">Plateau et dés · Brun et or</p>
+                                <p class="shop-size fixed-size">Taille unique</p>
+                                <label class="product-quantity" for="qte-piste">
+                                    <span>Quantité</span>
+                                    <input id="qte-piste" name="qte-piste" type="number"
+                                        min="0" max="999" step="1" required value="0">
+                                </label>
+                            </div>
+                        </article>
+
+                        <article class="product" data-produit="carnet" data-prix="15">
+                            <figure class="product-image">
+                                <span class="product-index">04</span>
+                                <img src="../images/carnet-mockup.jpg"
+                                    alt="Carnet de campagne Brumes brun et beige" width="880" height="1100" loading="lazy">
+                            </figure>
+                            <div class="product-info">
+                                <div class="product-title">
+                                    <h3>Carnet de campagne</h3>
+                                    <p>15 €</p>
+                                </div>
+                                <p class="product-meta">Notes de séance · Fiches de personnages</p>
+                                <p class="shop-size fixed-size">Taille unique</p>
+                                <label class="product-quantity" for="qte-carnet">
+                                    <span>Quantité</span>
+                                    <input id="qte-carnet" name="qte-carnet" type="number"
+                                        min="0" max="999" step="1" required value="0">
+                                </label>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Panier et total général avant de transmettre la commande au contact. -->
+                <div class="checkout-layout" id="recapitulatif">
+                    <section class="basket" aria-labelledby="basket-title">
+                        <div class="builder-head">
+                            <h2 id="basket-title">Votre panier</h2>
+                            <p class="kicker">Boutique</p>
+                        </div>
+
+                        <div class="basket-head" aria-hidden="true">
+                            <span>Article / taille</span>
+                            <span>Qté</span>
+                            <span>Prix</span>
+                        </div>
+                        <!--
+                            Je garde les quatre lignes du panier dans le HTML : plus besoin de cloner un template.
+                            Le JS affiche uniquement les articles dont la quantité est positive.
+                        -->
+                        <ul id="panier-merch" class="basket-items" aria-live="polite">
+                            <li id="panier-vide" class="basket-empty">
+                                <span aria-hidden="true">[ 0 ]</span>
+                                <p>Votre panier est vide.</p>
+                                <a href="#boutique" class="text-link">
+                                    Voir les articles
+                                    <span aria-hidden="true">↑</span>
+                                </a>
+                            </li>
+
+                            <li class="basket-row" id="ligne-sweat" hidden>
+                                <div>
+                                    <strong>Sweat Brumes</strong>
+                                    <small id="panier-taille-sweat"></small>
+                                    <button class="basket-remove plain-button" id="retirer-sweat" type="button">Retirer</button>
+                                </div>
+                                <span id="panier-qte-sweat"></span>
+                                <span class="basket-price" id="panier-prix-sweat"></span>
+                            </li>
+
+                            <li class="basket-row" id="ligne-tapis" hidden>
+                                <div>
+                                    <strong>Tapis de bataille</strong>
+                                    <small id="panier-taille-tapis"></small>
+                                    <button class="basket-remove plain-button" id="retirer-tapis" type="button">Retirer</button>
+                                </div>
+                                <span id="panier-qte-tapis"></span>
+                                <span class="basket-price" id="panier-prix-tapis"></span>
+                            </li>
+
+                            <li class="basket-row" id="ligne-piste" hidden>
+                                <div>
+                                    <strong>Piste à dés</strong>
+                                    <small id="panier-taille-piste"></small>
+                                    <button class="basket-remove plain-button" id="retirer-piste" type="button">Retirer</button>
+                                </div>
+                                <span id="panier-qte-piste"></span>
+                                <span class="basket-price" id="panier-prix-piste"></span>
+                            </li>
+
+                            <li class="basket-row" id="ligne-carnet" hidden>
+                                <div>
+                                    <strong>Carnet de campagne</strong>
+                                    <small id="panier-taille-carnet"></small>
+                                    <button class="basket-remove plain-button" id="retirer-carnet" type="button">Retirer</button>
+                                </div>
+                                <span id="panier-qte-carnet"></span>
+                                <span class="basket-price" id="panier-prix-carnet"></span>
+                            </li>
+                        </ul>
+                        <div class="basket-footer">
+                            <span>Sous-total boutique</span>
+                            <output id="total-boutique" for="qte-sweat qte-tapis qte-piste qte-carnet">0 €</output>
+                        </div>
+                    </section>
+
+                    <section class="price-receipt checkout-receipt" aria-labelledby="checkout-title">
+                        <p class="kicker">Adhésion + boutique</p>
+                        <h2 id="checkout-title">Total.</h2>
+                        <dl class="checkout-breakdown">
+                            <div>
+                                <dt>Cotisation annuelle</dt>
+                                <dd><output id="recap-cotisation" for="adultes moins12 de12a15 de16a17">0 €</output></dd>
+                            </div>
+                            <div>
+                                <dt>Articles de la boutique</dt>
+                                <dd><output id="recap-boutique" for="qte-sweat qte-tapis qte-piste qte-carnet">0 €</output></dd>
+                            </div>
+                        </dl>
+                        <div class="receipt-total">
+                            <span>Montant de la commande</span>
+                            <div>
+                                <output id="total-commande" aria-live="polite">0</output>
+                                <span> €</span>
+                            </div>
+                        </div>
+                        <a href="contact.html#inscription" class="button light">Contacter le club <span aria-hidden="true">↗</span></a>
+                        <button type="button" id="reset-total" class="plain-button">Tout réinitialiser ↺</button>
+                        <small class="muted-note">Notez votre sélection avant de contacter le club. Aucun paiement en ligne.</small>
+                    </section>
+                </div>
+            </form>
+        </main>
+
+        <!-- Pied de page : accès à la confidentialité et retour au début de la page. -->
+        <footer class="site-footer shell">
+            <a href="../index.html" class="footer-brand">brumes<span>.</span></a>
+            <span>Club de jeu de rôle · Nîmes<br>Projet étudiant fictif · 2026</span>
+            <a href="../pages/confidentialite.html">Confidentialité</a>
+            <a href="#contenu">Retour en haut ↑</a>
+        </footer>
+    </body>
+</html>

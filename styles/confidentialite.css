@@ -1,0 +1,19 @@
+/* Page confidentialité. */
+
+.privacy {
+    max-width: 800px;
+    padding-bottom: 30px;
+}
+
+.privacy h2 {
+    font-size: 30px;
+    margin: 24px 0 8px;
+}
+
+.privacy p {
+    color: var(--muted);
+}
+
+.privacy .text-link {
+    margin-top: 24px;
+}

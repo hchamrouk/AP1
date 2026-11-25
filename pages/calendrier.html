@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Calendrier des séances de jeu de rôle." name="description">
+
+        <title>Brumes — Calendrier</title>
+        <link href="../images/logo.svg" rel="icon" type="image/svg+xml">
+        <link href="../styles/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="../styles/calendrier.css">
+    </head>
+
+    <body class="page-calendrier">
+        <a class="skip" href="#contenu">Aller au contenu</a>
+
+        <!-- Je reprends le même menu sur chaque page ; aria-current indique le lien actif. -->
+        <header class="site-header">
+            <a aria-label="Brumes, accueil" class="brand" href="../index.html">brumes<span>.</span></a>
+
+            <nav aria-label="Navigation principale" class="desktop-nav">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <span class="nav-number">01</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/guilde.html">
+                            <span class="nav-number">02</span>
+                            <span>Le club</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a aria-current="page" href="../pages/calendrier.html">
+                            <span class="nav-number">03</span>
+                            <span>Calendrier</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/tarifs.html">
+                            <span class="nav-number">04</span>
+                            <span>Tarifs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/contact.html">
+                            <span class="nav-number">05</span>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a class="header-cta" href="../pages/contact.html#inscription">
+                Nous rejoindre
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- Sur mobile, details et summary ouvrent le menu sans JavaScript. -->
+            <details class="mobile-menu">
+                <summary><span>Menu</span><span aria-hidden="true" class="burger"><i></i><i></i></span></summary>
+
+                <nav aria-label="Navigation mobile">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                <span class="nav-number">01</span>
+                                <span>Accueil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/guilde.html">
+                                <span class="nav-number">02</span>
+                                <span>Le club</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a aria-current="page" href="../pages/calendrier.html">
+                                <span class="nav-number">03</span>
+                                <span>Calendrier</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/tarifs.html">
+                                <span class="nav-number">04</span>
+                                <span>Tarifs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/contact.html">
+                                <span class="nav-number">05</span>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </details>
+        </header>
+
+        <main class="shell" id="contenu">
+            <header class="page-heading">
+                <p class="kicker">03 / La Table des Brumes</p>
+                <h1>Calendrier.</h1>
+                <p class="lead">Retrouve les prochaines parties du club.</p>
+            </header>
+
+            <div class="schedule-layout">
+                <!-- Une grille statique : chaque ligne du tableau représente une semaine de décembre. -->
+                <section aria-labelledby="month-title" class="month">
+                    <div class="month-head">
+                        <h2 id="month-title">Décembre <span>2026</span></h2>
+                        <span class="month-count">05 séances</span>
+                    </div>
+                    <!-- Les liens des jours de séance transmettent objet et partie au contact ; le CSS choisit le format horaire selon la largeur. -->
+                    <table class="calendar">
+                        <caption class="sr-only">Calendrier de décembre 2026</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col"><abbr title="Lundi">Lun</abbr></th>
+                                <th scope="col"><abbr title="Mardi">Mar</abbr></th>
+                                <th scope="col"><abbr title="Mercredi">Mer</abbr></th>
+                                <th scope="col"><abbr title="Jeudi">Jeu</abbr></th>
+                                <th scope="col"><abbr title="Vendredi">Ven</abbr></th>
+                                <th scope="col"><abbr title="Samedi">Sam</abbr></th>
+                                <th scope="col"><abbr title="Dimanche">Dim</abbr></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="empty"></td>
+                                <td><time datetime="2026-12-01">01</time></td>
+                                <td><time datetime="2026-12-02">02</time></td>
+                                <td><time datetime="2026-12-03">03</time></td>
+                                <td><time datetime="2026-12-04">04</time></td>
+                                <td class="has-event">
+                                    <a
+                                        aria-label="Réserver le 5 décembre : Le premier lancer · 14 h – 17 h"
+                                        title="5 décembre : Le premier lancer · 14 h – 17 h"
+                                        href="contact.html#inscription">
+                                        <time datetime="2026-12-05">05</time>
+                                        <span aria-hidden="true" class="event-dot"></span>
+                                        <span aria-hidden="true" class="calendar-kind">Le premier lancer</span>
+                                        <span class="calendar-time">
+                                            <span class="calendar-time-full">14 h – 17 h</span>
+                                            <span class="calendar-time-short" aria-hidden="true">14–17h</span>
+                                        </span>
+                                    </a>
+                                </td>
+                                <td><time datetime="2026-12-06">06</time></td>
+                            </tr>
+                            <tr>
+                                <td><time datetime="2026-12-07">07</time></td>
+                                <td><time datetime="2026-12-08">08</time></td>
+                                <td class="has-event">
+                                    <a
+                                        aria-label="Réserver le 9 décembre : Atelier de création de personnages · 18 h – 20 h"
+                                        title="9 décembre : Atelier de création de personnages · 18 h – 20 h"
+                                        href="contact.html#inscription">
+                                        <time datetime="2026-12-09">09</time>
+                                        <span aria-hidden="true" class="event-dot"></span>
+                                        <span aria-hidden="true" class="calendar-kind">Atelier de création de personnages</span>
+                                        <span class="calendar-time">
+                                            <span class="calendar-time-full">18 h – 20 h</span>
+                                            <span class="calendar-time-short" aria-hidden="true">18–20h</span>
+                                        </span>
+                                    </a>
+                                </td>
+                                <td><time datetime="2026-12-10">10</time></td>
+                                <td><time datetime="2026-12-11">11</time></td>
+                                <td class="has-event">
+                                    <a
+                                        aria-label="Réserver le 12 décembre : La citadelle oubliée · 14 h – 18 h"
+                                        title="12 décembre : La citadelle oubliée · 14 h – 18 h"
+                                        href="contact.html#inscription">
+                                        <time datetime="2026-12-12">12</time>
+                                        <span aria-hidden="true" class="event-dot"></span>
+                                        <span aria-hidden="true" class="calendar-kind">La citadelle oubliée</span>
+                                        <span class="calendar-time">
+                                            <span class="calendar-time-full">14 h – 18 h</span>
+                                            <span class="calendar-time-short" aria-hidden="true">14–18h</span>
+                                        </span>
+                                    </a>
+                                </td>
+                                <td><time datetime="2026-12-13">13</time></td>
+                            </tr>
+                            <tr>
+                                <td><time datetime="2026-12-14">14</time></td>
+                                <td><time datetime="2026-12-15">15</time></td>
+                                <td><time datetime="2026-12-16">16</time></td>
+                                <td class="has-event">
+                                    <a
+                                        aria-label="Réserver le 17 décembre : Le mystère de la taverne · 19 h – 22 h"
+                                        title="17 décembre : Le mystère de la taverne · 19 h – 22 h"
+                                        href="contact.html#inscription">
+                                        <time datetime="2026-12-17">17</time>
+                                        <span aria-hidden="true" class="event-dot"></span>
+                                        <span aria-hidden="true" class="calendar-kind">Le mystère de la taverne</span>
+                                        <span class="calendar-time">
+                                            <span class="calendar-time-full">19 h – 22 h</span>
+                                            <span class="calendar-time-short" aria-hidden="true">19–22h</span>
+                                        </span>
+                                    </a>
+                                </td>
+                                <td><time datetime="2026-12-18">18</time></td>
+                                <td class="has-event">
+                                    <a
+                                        aria-label="Réserver le 19 décembre : Sous les bois anciens · 14 h – 18 h"
+                                        title="19 décembre : Sous les bois anciens · 14 h – 18 h"
+                                        href="contact.html#inscription">
+                                        <time datetime="2026-12-19">19</time>
+                                        <span aria-hidden="true" class="event-dot"></span>
+                                        <span aria-hidden="true" class="calendar-kind">Sous les bois anciens</span>
+                                        <span class="calendar-time">
+                                            <span class="calendar-time-full">14 h – 18 h</span>
+                                            <span class="calendar-time-short" aria-hidden="true">14–18h</span>
+                                        </span>
+                                    </a>
+                                </td>
+                                <td><time datetime="2026-12-20">20</time></td>
+                            </tr>
+                            <tr>
+                                <td><time datetime="2026-12-21">21</time></td>
+                                <td><time datetime="2026-12-22">22</time></td>
+                                <td><time datetime="2026-12-23">23</time></td>
+                                <td><time datetime="2026-12-24">24</time></td>
+                                <td><time datetime="2026-12-25">25</time></td>
+                                <td><time datetime="2026-12-26">26</time></td>
+                                <td><time datetime="2026-12-27">27</time></td>
+                            </tr>
+                            <tr>
+                                <td><time datetime="2026-12-28">28</time></td>
+                                <td><time datetime="2026-12-29">29</time></td>
+                                <td><time datetime="2026-12-30">30</time></td>
+                                <td><time datetime="2026-12-31">31</time></td>
+                                <td class="empty"></td>
+                                <td class="empty"></td>
+                                <td class="empty"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="calendar-legend"><span aria-hidden="true" class="dot"></span> Jour de séance · Sélectionne une date pour réserver une séance.</p>
+                </section>
+
+                <!-- Les mêmes cinq séances, avec leur titre complet et un accès direct au formulaire. -->
+                <section aria-labelledby="events-title" class="event-list">
+                    <h2 class="section-label" id="events-title">Les rendez-vous</h2>
+
+                    <article class="event" id="initiation">
+                        <div class="event-date">
+                            <time datetime="2026-12-05">05<small>DEC.</small></time>
+                        </div>
+                        <div class="event-info">
+                            <p class="kicker">Initiation · Découverte</p>
+                            <h3>Le premier lancer</h3>
+                            <p>Samedi · 14 h – 17 h</p>
+                        </div>
+                        <a
+                            class="text-link"
+                            href="contact.html#inscription">
+                            <span class="event-cta-label">Demander une place</span>
+                            <span class="event-cta-short">Réserver</span>
+                            <span aria-hidden="true" class="event-cta-arrow">↗</span>
+                        </a>
+                    </article>
+
+                    <article class="event" id="atelier">
+                        <div class="event-date">
+                            <time datetime="2026-12-09">09<small>DEC.</small></time>
+                        </div>
+                        <div class="event-info">
+                            <p class="kicker">Atelier · Découverte</p>
+                            <h3>Atelier de création de personnages</h3>
+                            <p>Mercredi · 18 h – 20 h</p>
+                        </div>
+                        <a
+                            class="text-link"
+                            href="contact.html#inscription">
+                            <span class="event-cta-label">Demander une place</span>
+                            <span class="event-cta-short">Réserver</span>
+                            <span aria-hidden="true" class="event-cta-arrow">↗</span>
+                        </a>
+                    </article>
+
+                    <article class="event" id="campagne">
+                        <div class="event-date">
+                            <time datetime="2026-12-12">12<small>DEC.</small></time>
+                        </div>
+                        <div class="event-info">
+                            <p class="kicker">Campagne · Tous niveaux</p>
+                            <h3>La citadelle oubliée</h3>
+                            <p>Samedi · 14 h – 18 h</p>
+                        </div>
+                        <a
+                            class="text-link"
+                            href="contact.html#inscription">
+                            <span class="event-cta-label">Demander une place</span>
+                            <span class="event-cta-short">Réserver</span>
+                            <span aria-hidden="true" class="event-cta-arrow">↗</span>
+                        </a>
+                    </article>
+
+                    <article class="event" id="one-shot">
+                        <div class="event-date">
+                            <time datetime="2026-12-17">17<small>DEC.</small></time>
+                        </div>
+                        <div class="event-info">
+                            <p class="kicker">Aventure · Tous niveaux</p>
+                            <h3>Le mystère de la taverne</h3>
+                            <p>Jeudi · 19 h – 22 h</p>
+                        </div>
+                        <a
+                            class="text-link"
+                            href="contact.html#inscription">
+                            <span class="event-cta-label">Demander une place</span>
+                            <span class="event-cta-short">Réserver</span>
+                            <span aria-hidden="true" class="event-cta-arrow">↗</span>
+                        </a>
+                    </article>
+
+                    <article class="event" id="aventure">
+                        <div class="event-date">
+                            <time datetime="2026-12-19">19<small>DEC.</small></time>
+                        </div>
+                        <div class="event-info">
+                            <p class="kicker">Aventure · Tous niveaux</p>
+                            <h3>Sous les bois anciens</h3>
+                            <p>Samedi · 14 h – 18 h</p>
+                        </div>
+                        <a
+                            class="text-link"
+                            href="contact.html#inscription">
+                            <span class="event-cta-label">Demander une place</span>
+                            <span class="event-cta-short">Réserver</span>
+                            <span aria-hidden="true" class="event-cta-arrow">↗</span>
+                        </a>
+                    </article>
+                </section>
+            </div>
+        </main>
+
+        <!-- Pied de page : accès à la confidentialité et retour au début de la page. -->
+        <footer class="site-footer shell">
+            <a class="footer-brand" href="../index.html">brumes.</a>
+            <span>Club de jeu de rôle · Nîmes<br>Projet étudiant fictif · 2026</span>
+            <a href="../pages/confidentialite.html">Confidentialité</a>
+            <a href="#contenu">Retour en haut ↑</a>
+        </footer>
+    </body>
+</html>

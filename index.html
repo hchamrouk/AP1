@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Brumes, club de jeu de rôle sur table à Nîmes.">
+
+        <title>Brumes — Club de jeu de rôle à Nîmes</title>
+
+        <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/accueil.css">
+    </head>
+
+    <body class="page-index">
+        <a class="skip" href="#contenu">Aller au contenu</a>
+
+        <!-- Je reprends le même menu sur chaque page ; aria-current indique le lien actif. -->
+        <header class="site-header">
+            <a class="brand" href="index.html" aria-label="Brumes, accueil">brumes<span>.</span></a>
+
+            <nav class="desktop-nav" aria-label="Navigation principale">
+                <ul>
+                    <li>
+                        <a href="index.html" aria-current="page">
+                            <span class="nav-number">01</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/guilde.html">
+                            <span class="nav-number">02</span>
+                            <span>Le club</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/calendrier.html">
+                            <span class="nav-number">03</span>
+                            <span>Calendrier</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/tarifs.html">
+                            <span class="nav-number">04</span>
+                            <span>Tarifs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/contact.html">
+                            <span class="nav-number">05</span>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a class="header-cta" href="pages/contact.html#inscription">
+                Nous rejoindre
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- Sur mobile, details et summary ouvrent le menu sans JavaScript. -->
+            <details class="mobile-menu">
+                <summary><span>Menu</span><span class="burger" aria-hidden="true"><i></i><i></i></span></summary>
+
+                <nav aria-label="Navigation mobile">
+                    <ul>
+                        <li>
+                            <a href="index.html" aria-current="page">
+                                <span class="nav-number">01</span>
+                                <span>Accueil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/guilde.html">
+                                <span class="nav-number">02</span>
+                                <span>Le club</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/calendrier.html">
+                                <span class="nav-number">03</span>
+                                <span>Calendrier</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/tarifs.html">
+                                <span class="nav-number">04</span>
+                                <span>Tarifs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/contact.html">
+                                <span class="nav-number">05</span>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </details>
+        </header>
+
+        <main id="contenu" class="shell">
+            <!-- Présentation de Brumes et accès direct à la réservation. -->
+            <section class="home-hero" aria-labelledby="hero-title">
+                <div class="hero-top">
+                    <p class="kicker">Club de jeu de rôle sur table</p>
+                    <p class="kicker">Nîmes, France <span class="dot" aria-hidden="true"></span></p>
+                </div>
+                <h1 id="hero-title">Le jeu de rôle, <span>autrement.</span></h1>
+                <div class="hero-bottom">
+                    <p>Un club pour inventer des histoires, incarner des personnages et partager des aventures autour de <strong>Donjons &amp; Dragons.</strong> </p>
+                    <a class="button dark" href="pages/contact.html#inscription">
+                        Rejoindre le club
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Les trois accès rapides : découvrir le club, réserver une partie et calculer une cotisation. -->
+            <section class="home-directory" aria-label="Découvrir le club">
+                <article class="home-about">
+                    <p class="kicker">Le principe</p>
+                    <h2>Une table.<br> Pas de limite.</h2>
+                    <p>Le maître du jeu raconte le monde. Les joueurs décident de la suite. Débutants ou habitués, chacun a sa place.</p>
+                    <a class="text-link" href="pages/guilde.html">
+                        Découvrir le club
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </article>
+
+                <article class="home-events">
+                    <p class="kicker">Les parties</p>
+                    <h2>En semaine<br> et le samedi.</h2>
+                    <p>Initiations, campagnes et aventures d’une séance.</p>
+                    <a class="text-link" href="pages/calendrier.html">
+                        Voir le calendrier
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </article>
+
+                <article class="home-fee">
+                    <p class="kicker">Adhésion annuelle</p>
+                    <h2>50<span> €</span></h2>
+                    <p class="fee-discount"><strong>Jusqu’à −30 %</strong> <span>pour les moins de 18 ans.</span></p>
+                    <a class="text-link" href="pages/tarifs.html">
+                        Simuler ma cotisation
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                    <a class="text-link panier-accueil" href="pages/tarifs.html#recapitulatif">
+                        Voir le panier <span aria-hidden="true">↗</span>
+                    </a>
+                </article>
+            </section>
+
+            <!-- Adresse fictive du club ; la carte Google Maps est intégrée directement en HTML. -->
+            <section class="home-location" aria-labelledby="lieu">
+                <div class="location-info">
+                    <div class="location-heading">
+                        <p class="kicker">Où nous trouver</p>
+                        <h2 id="lieu">Nîmes.</h2>
+                    </div>
+                    <div class="location-details">
+                        <address>12 rue de la République<br>30000 Nîmes, France</address>
+                        <p class="muted-note">Adresse de démonstration.</p>
+                        <a class="text-link" href="pages/contact.html">
+                            Contactez-nous
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="map-frame">
+                    <iframe
+                        id="google-map"
+                        title="Google Maps : 12 rue de la République, Nîmes"
+                        src="https://maps.google.com/maps?q=12%20rue%20de%20la%20R%C3%A9publique%2C%2030000%20N%C3%AEmes%2C%20France&amp;output=embed"
+                        width="600"
+                        height="320"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen></iframe>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pied de page : accès à la confidentialité et retour au début de la page. -->
+        <footer class="site-footer shell">
+            <a href="index.html" class="footer-brand">brumes<span>.</span></a>
+            <span>Club de jeu de rôle · Nîmes<br>Projet étudiant fictif · 2026</span>
+            <a href="pages/confidentialite.html">Confidentialité</a>
+            <a href="#contenu">Retour en haut ↑</a>
+        </footer>
+    </body>
+</html>

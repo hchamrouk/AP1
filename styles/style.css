@@ -1,0 +1,743 @@
+/* Styles communs : couleurs, typographie, navigation, boutons et pied de page. */
+
+:root {
+    --paper: #201a1b;
+    --panel: #392e2e;
+    --on-accent: #201a1b;
+    --control-border: #917c7b;
+    --error: #ffadad;
+    color-scheme: dark;
+    --white: #2f2527;
+    --ink: #f2e6d8;
+    --muted: #c9b7a9;
+    --line: #5b4749;
+    --soft: #3b2f31;
+    --accent: #c89b63;
+    --accent-hover: #ddb27d;
+    --accent-soft: #4a3932;
+    --accent-light: #ebcfab;
+    --accent-text: #e2b97f;
+    --visited: #d1b7c3;
+    --gutter: clamp(20px, 5vw, 80px);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 20px;
+}
+
+body {
+    margin: 0;
+    position: relative;
+    background-color: var(--paper);
+    /* Des points réguliers remplacent la texture de grain. */
+    /* background-image: radial-gradient(circle, #f2e6d81c 0.75px, transparent 1px); */
+    /* background-size: 22px 22px; */
+    /* background-attachment: fixed; */
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+dl,
+dd {
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.03;
+    letter-spacing: -.045em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--visited);
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: .65;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+address {
+    font-style: normal;
+}
+
+abbr {
+    text-decoration: none;
+}
+
+.skip {
+    position: absolute;
+    top: -100px;
+    left: 12px;
+    z-index: 10;
+    background: var(--panel);
+    padding: 10px;
+}
+
+.skip:focus {
+    top: 12px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.shell {
+    max-width: 1600px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+}
+
+.kicker,
+.section-label {
+    font-size: 12px;
+    line-height: 1.35;
+    font-weight: 700;
+    letter-spacing: .075em;
+    text-transform: uppercase;
+}
+
+.lead {
+    max-width: 50ch;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background: currentColor;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.muted-note {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.site-header {
+    min-height: 80px;
+    border-bottom: 1px solid var(--line);
+    padding: 0 var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    position: relative;
+    background: var(--paper);
+    z-index: 2;
+}
+
+.brand,
+.footer-brand {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -.085em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.brand span,
+.footer-brand span {
+    color: var(--accent);
+}
+
+.desktop-nav ul,
+.mobile-menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: clamp(15px, 2.2vw, 35px);
+}
+
+.desktop-nav a,
+.mobile-menu nav a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    line-height: 1.2;
+    font-size: 14px;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.nav-number {
+    font-size: 10px;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.desktop-nav a {
+    padding: 29px 0 27px;
+    border-bottom: 2px solid transparent;
+}
+
+.desktop-nav a[aria-current="page"] {
+    border-color: var(--ink);
+}
+
+.header-cta {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid var(--ink);
+    padding: 11px 14px;
+    white-space: nowrap;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+.mobile-menu summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.mobile-menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.burger {
+    display: grid;
+    gap: 6px;
+    width: 25px;
+}
+
+.burger i {
+    height: 2px;
+    background: currentColor;
+    display: block;
+}
+
+.mobile-menu[open] .burger i:first-child {
+    transform: translateY(4px) rotate(45deg);
+}
+
+.mobile-menu[open] .burger i:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+.button {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    min-height: 52px;
+    padding: 13px 20px;
+    border: 1px solid var(--ink);
+    font-weight: 700;
+    font-size: 14px;
+    text-align: left;
+    line-height: 1.25;
+}
+
+.button.dark {
+    background: var(--panel);
+    color: var(--ink);
+}
+
+.button.light {
+    background: var(--white);
+    color: var(--ink);
+    border-color: var(--ink);
+}
+
+.button span {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.text-link {
+    display: inline-flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 1px solid currentColor;
+    padding: 7px 0;
+    line-height: 1.3;
+}
+
+.text-link span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.page-heading {
+    padding: 35px 0 32px;
+    border-bottom: 1px solid var(--ink);
+    margin-bottom: 32px;
+}
+
+.page-heading h1 {
+    font-size: clamp(57px, 8.9vw, 134px);
+    letter-spacing: -.08em;
+    margin: 18px 0 12px;
+}
+
+.page-heading .kicker {
+    color: var(--muted);
+}
+
+.site-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto auto;
+    gap: 24px;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 20px;
+}
+
+.site-footer a {
+    color: var(--ink);
+}
+
+.footer-brand {
+    font-size: 27px;
+}
+
+.plain-button {
+    background: transparent;
+    border: 0;
+    padding: 6px 0;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+@media (max-width:1050px) {
+    .header-cta {
+        display: none;
+    }
+}
+
+@media (max-width:760px) {
+    .site-header {
+        min-height: 66px;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .mobile-menu nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--paper);
+        border-bottom: 1px solid var(--ink);
+        padding: 4px var(--gutter) 15px;
+    }
+
+    .mobile-menu ul {
+        display: block;
+    }
+
+    .mobile-menu nav a {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 16px;
+        gap: 12px;
+    }
+
+    .mobile-menu nav a[aria-current="page"] {
+        font-weight: 800;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+    }
+
+    .brand {
+        font-size: 33px;
+    }
+
+    .page-heading {
+        padding: 24px 0;
+        margin-bottom: 24px;
+    }
+
+    .page-heading h1 {
+        font-size: clamp(53px, 11vw, 85px);
+    }
+
+    .lead {
+        font-size: 16px;
+    }
+
+    .site-footer {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width:420px) {
+    :root {
+        --gutter: 16px;
+    }
+}
+
+.brand,
+.footer-brand {
+    letter-spacing: -.06em;
+}
+
+.page-heading {
+    padding: 28px 0 25px;
+    margin-bottom: 28px;
+}
+
+.page-heading h1 {
+    font-size: clamp(52px, 7.8vw, 118px);
+    letter-spacing: -.055em;
+    margin: 12px 0 8px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width:760px) {
+    .page-heading {
+        padding: 24px 0;
+        margin-bottom: 24px;
+    }
+
+    .page-heading h1 {
+        font-size: clamp(46px, 10vw, 80px);
+    }
+}
+
+@media (max-width:420px) {
+    .page-heading h1 {
+        font-size: clamp(38px, 10.8vw, 46px);
+    }
+}
+
+a,
+button,
+summary {
+    transition: background-color .16s ease, color .16s ease;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.text-link:hover {
+    background: var(--soft);
+}
+
+.button.dark:hover:not(:disabled) {
+    background: var(--soft);
+}
+
+.button.light:hover:not(:disabled) {
+    background: var(--soft);
+}
+
+.header-cta:hover {
+    background: var(--panel);
+    color: var(--ink);
+}
+
+.plain-button:hover {
+    background: var(--soft);
+}
+
+.plain-button {
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+}
+
+.desktop-nav {
+    align-self: stretch;
+}
+
+.desktop-nav ul {
+    height: 100%;
+    gap: 0;
+}
+
+.desktop-nav li {
+    display: flex;
+}
+
+.desktop-nav a {
+    height: 100%;
+    padding: 0 clamp(12px, 1.4vw, 24px);
+    border: 0;
+    position: relative;
+}
+
+.desktop-nav a:hover {
+    background: var(--soft);
+}
+
+.desktop-nav a[aria-current="page"] {
+    box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.desktop-nav a .nav-number {
+    align-self: center;
+}
+
+.mobile-menu nav a[aria-current="page"] {
+    background: var(--soft);
+    text-decoration: none;
+    box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.mobile-menu nav a:hover {
+    background: var(--soft);
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+    a,
+    button,
+    summary {
+        transition: none;
+    }
+}
+
+.text-link {
+    padding: 9px 11px;
+    gap: 18px;
+}
+
+.plain-button {
+    padding: 7px 10px;
+}
+
+@media (max-width:760px) {
+    .site-header>.brand {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 8px 10px;
+        margin-inline-start: -10px;
+    }
+
+    .mobile-menu>summary {
+        min-height: 44px;
+        padding: 10px;
+        margin-inline-end: -10px;
+    }
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.desktop-nav a[aria-current="page"] .nav-number,
+.mobile-menu nav a[aria-current="page"] .nav-number {
+    color: var(--accent);
+}
+
+.mobile-menu nav a[aria-current="page"] {
+    background: var(--accent-soft);
+}
+
+.header-cta {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.header-cta:visited {
+    color: var(--accent);
+}
+
+.header-cta:hover {
+    background: var(--accent);
+    color: var(--ink);
+}
+
+.button.dark {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ink);
+}
+
+.button.dark:hover:not(:disabled) {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.text-link span[aria-hidden="true"] {
+    color: var(--accent);
+}
+
+.site-header>.brand,
+.mobile-menu>summary,
+.site-footer a {
+    transition: none;
+}
+
+.site-header>.brand:hover,
+.mobile-menu>summary:hover,
+.site-footer a:hover {
+    background: transparent;
+    text-decoration: none;
+}
+
+.dot {
+    flex: none;
+}
+
+.desktop-nav a[aria-current="page"] {
+    border-color: var(--accent);
+}
+
+/* En-têtes des encadrés : utilisés par les tarifs et le contact. */
+
+.builder-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 22px;
+    border-bottom: 1px solid var(--line);
+}
+
+.builder-head h2 {
+    font-size: clamp(23px, 2.5vw, 32px);
+}
+
+.builder-head .kicker {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+@media (max-width:420px) {
+    .builder-head {
+        padding: 16px 12px;
+    }
+}
+/* L’accent doré est réservé aux éléments interactifs et aux repères. */
+.desktop-nav a[aria-current="page"] .nav-number,
+.mobile-menu nav a[aria-current="page"] .nav-number,
+.header-cta,
+.header-cta:visited,
+.text-link span[aria-hidden="true"] {
+    color: var(--accent-text);
+}
+.header-cta:hover, .button.dark, .button.dark:hover:not(:disabled) {
+    color: var(--ink);
+}
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible {
+    outline-color: var(--accent-text);
+}
+/* Les liens de navigation visités ont une couleur distincte, sans modifier le logo. */
+.desktop-nav a:visited:not([aria-current="page"]),
+.mobile-menu nav a:visited:not([aria-current="page"]),
+main a.text-link:visited,
+.site-footer a:not(.footer-brand):visited,
+.consent a:visited {
+    color: var(--visited);
+}
+
+
+/* Palette sombre : je garde la chaleur du beige, mais avec un fond plus profond et un accent doré. */
+.button.light:hover:not(:disabled) {
+    background: #3f3335;
+}
+.button.dark:hover:not(:disabled) {
+    color: #201a1b;
+}
+.header-cta:hover {
+    color: #201a1b;
+}
+.text-link:hover,
+.plain-button:hover,
+.desktop-nav a:hover,
+.mobile-menu nav a:hover {
+    background: #352a2c;
+}
+.mobile-menu nav {
+    background: #201a1b;
+}
+
+/* Contraste des boutons : texte sombre sur fond doré, texte clair sur fond sombre. */
+.button.dark,
+.button.dark:visited,
+.button.dark:hover:not(:disabled),
+.header-cta:hover,
+.header-cta:hover:visited {
+    color: var(--on-accent);
+}
+.button.light { border-color: var(--control-border); }
+input, select, textarea { border-color: var(--control-border); }
